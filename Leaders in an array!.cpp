@@ -1,4 +1,5 @@
 //nested loop approach (quadratic time complexity)
+//follows a left to right approach
 #include <iostream>
 using namespace std;
 
