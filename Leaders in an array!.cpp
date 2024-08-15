@@ -11,6 +11,7 @@ void leaders_array (int array[], int size)
         for (j = i + 1; j<size; j++)
         {
             if (array[i] <= array[j])
+                //we can write i = j 
                 break;
         }
         if (j == size)
