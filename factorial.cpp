@@ -1,24 +1,27 @@
 #include <iostream>
 using namespace std;
 
-int main()
+void factorial (int number)
 {
-    int n;
     long factorial = 1.0;
-    cout<<"Enter a positive number:";
-    cin>>n;
-
-    if (n<0)
-    {
+    if (number < 0)
         cout<<"Error!";
-    }
-    else{
-        for (int i =1; i<=n; ++i)
+    else 
+    {
+        for (int i = 1; i<=number; i++)
         {
             factorial = factorial * i;
         }
-        cout<<"Factorial of "<<n<<"="<<factorial;
-
+        cout<<"Factorial of "<<number<<"="<<factorial;
     }
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter a positive number:";
+    cin>>n;
+
+   factorial(n);
     return 0;
 }
