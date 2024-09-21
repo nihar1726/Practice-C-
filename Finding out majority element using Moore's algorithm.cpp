@@ -1,9 +1,9 @@
-//this is for majority element not elements more than n/k times
+//this is for majority element that is n/2 times
 
 #include<iostream>
 using namespace std;
 
-int more_than_nbyk(int array[], int size)
+int more_than_nby2(int array[], int size)
 {
     int votes;
     int candidate;
@@ -37,11 +37,13 @@ int more_than_nbyk(int array[], int size)
     return candidate;
 }
 
+
 int main()
 {
     int arr[15] = {1,1,2,8,8,8,6,6,6,6,6,6,6,3,3};
-    int result = more_than_nbyk(arr, 15);
+    int result = more_than_nby2(arr, 15);
     cout<<"Majority element: "<<result<<endl;
     return 0;
 }
+
 
