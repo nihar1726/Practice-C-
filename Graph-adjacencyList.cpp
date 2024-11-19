@@ -69,6 +69,43 @@ public:
             }
         }
     }
+
+    void BFS(int startingVertex)
+    {
+        bool *visited = new bool[totalVertices];
+
+        for (int i = 0; i < totalVertices; i++)
+        {
+            visited[i] = false;
+        }
+
+        int queue[totalVertices];
+        int front = 0;
+        int rear = 0;
+
+        visited[startingVertex] = true;
+        queue[rear++] = startingVertex; // inseted in queue
+
+        cout << "Your Vertices: " << endl;
+
+        while (front < rear)
+        {
+            int vertex = queue[front++];
+            cout << vertex << " ";
+
+            for (node *temp = adjList[vertex]; temp != nullptr; temp = temp->next)
+            {
+                int adjacentNode = temp->vertex;
+
+                if (!visited[adjacentNode])
+                {
+                    visited[adjacentNode] = true;
+                    queue[rear++] = adjacentNode;
+                }
+            }
+        }
+        delete[] visited;
+    }
 };
 
 int main()
@@ -83,5 +120,8 @@ int main()
     g1.addEdge(2, 4);
 
     g1.printGraph();
+
+    g1.BFS(0);
+
     return 0;
 }
