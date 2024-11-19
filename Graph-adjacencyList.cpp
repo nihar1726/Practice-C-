@@ -106,6 +106,44 @@ public:
         }
         delete[] visited;
     }
+
+    void DFS(int startingVertex)
+    {
+        bool *visited = new bool[totalVertices];
+
+        for (int i = 0; i < totalVertices; i++)
+        {
+            visited[i] = false;
+        }
+        // creating stack
+        int stack[totalVertices];
+        int top = -1;
+
+        // inserting starting node in stack
+        stack[++top] = startingVertex;
+
+        while (top != -1)
+        {
+            int vertex = stack[top--]; // POP
+
+            if (!visited[vertex])
+            {
+                visited[vertex] = true;
+                cout << vertex << " "; // Printing unvisited top of stack
+            }
+            // inserting adjacent nodes in stack
+            for (node *temp = adjList[0]; temp != nullptr; temp = temp->next)
+            {
+                int adjacentVertex = temp->vertex;
+
+                if (!visited[adjacentVertex])
+                {
+                    stack[++top] = adjacentVertex;
+                }
+            }
+        }
+        delete[] visited;
+    }
 };
 
 int main()
