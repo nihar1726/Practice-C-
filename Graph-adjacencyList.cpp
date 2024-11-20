@@ -86,7 +86,8 @@ public:
         visited[startingVertex] = true;
         queue[rear++] = startingVertex; // inseted in queue
 
-        cout << "Your Vertices: " << endl;
+        cout << endl
+             << "Your Vertices using BFS: ";
 
         while (front < rear)
         {
@@ -122,6 +123,9 @@ public:
         // inserting starting node in stack
         stack[++top] = startingVertex;
 
+        cout << endl
+             << "Your Vertices using DFS: ";
+
         while (top != -1)
         {
             int vertex = stack[top--]; // POP
@@ -132,7 +136,7 @@ public:
                 cout << vertex << " "; // Printing unvisited top of stack
             }
             // inserting adjacent nodes in stack
-            for (node *temp = adjList[0]; temp != nullptr; temp = temp->next)
+            for (node *temp = adjList[vertex]; temp != nullptr; temp = temp->next)
             {
                 int adjacentVertex = temp->vertex;
 
@@ -160,6 +164,8 @@ int main()
     g1.printGraph();
 
     g1.BFS(0);
+    cout << endl;
+    g1.DFS(0);
 
     return 0;
 }
